@@ -1,15 +1,19 @@
 import React from 'react';
-import Navbar from './Navbar';
+import Navs from './Navs';
 import Title from './Title';
 
-function MainPageLayout({childern}) {
-    return (
-        <div>
-            <Title title="Box Office"  subtitle="Are you looking for movie or an actor ?"/>
-            <Navbar/>
-            {childern}
-        </div>
-    )
-}
+const MainPageLayout = ({ children }) => {
+  return (
+    <div>
+      <Title
+        title="Box Office"
+        subtitle="Are you looking for a movie or an actor?"
+      />
+      <Navs />
 
-export default MainPageLayout
+      {children}
+    </div>
+  );
+};
+
+export default MainPageLayout;
