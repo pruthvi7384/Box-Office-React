@@ -5,8 +5,11 @@ import  {apiget} from '../mics/config';
 const Home = () => {
   const [input,setInput] = useState('');
   const [results,setResults] = useState(null);
+  const [radioOption,setRadioOption] = useState('shows');
+
+  const isShowsOption = radioOption === 'shows';
   const Search = ()=>{
-    apiget(`/shows?q=${input}`)
+    apiget(`/${radioOption}?q=${input}`)
    .then(result=>{
       setResults(result);
       console.log(result);
@@ -26,13 +29,30 @@ const Home = () => {
         return <div>No Results Found !</div>
     }
     if(results && results.length > 0){
-        return <div> {results.map((item)=><div key={item.show.id}>{item.show.name}</div>)} </div>
+        return results[0].show 
+        ? results.map((item)=><div key={item.show.id}>{item.show.name}</div>) 
+        : results.map((item)=><div key={item.person.id}>{item.person.name}</div>);
     }
     return null;
   }
+  const onChangeRadoio = (ev)=>{
+    setRadioOption(ev.target.value);
+    // console.log(ev.target.value);
+  }
+  console.log(radioOption);
   return ( 
       <MainPageLayout>
         <input type="text" onChange={onChange} onKeyDown={onKeyDown} value={input} />
+        <div>
+          <label htmlFor="show_search">
+              Shows
+              <input id="show_search" checked={isShowsOption} type="radio" value="shows" onChange={onChangeRadoio} />
+          </label>
+          <label htmlFor="show_actors">
+              Actors
+              <input id="show_actors" checked={!isShowsOption} type="radio" value="people" onChange={onChangeRadoio} />
+          </label>
+        </div>
         <button type="button" onClick={Search}>Search</button>
         {RenderedSearch()}
       </MainPageLayout>
