@@ -6,6 +6,7 @@ import Session from '../Components/show/Session';
 import Cast from '../Components/show/Cast';
 import { InfoBlock, ShowPageWrapper } from './Show.styled';
 import {useShowes} from '../mics/coustum-hooks'
+import { Centered } from '../Components/style';
 
 
 
@@ -19,10 +20,10 @@ function Show() {
     
     // console.log(show);
     if(isloding){
-        return <div>Data Is being Loded</div>
+        return <Centered>Data Is being Loded</Centered>
     }
     if(iserror){
-        return <div>Error Occured : {iserror}</div>
+        return <Centered> Error Occured : {iserror}</Centered>
     }
     return (
         <ShowPageWrapper>

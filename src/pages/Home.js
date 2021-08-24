@@ -3,6 +3,7 @@ import ActorGrid from '../Components/actor/ActorGrid';
 import CustomRadioButton from '../Components/CustomRadioButton';
 import MainPageLayout from '../Components/MainPageLayout';
 import ShowGrid from '../Components/show/ShowGrid';
+import { Centered } from '../Components/style';
 import  {apiget} from '../mics/config';
 import {useLastQuery} from '../mics/coustum-hooks';
 import { RadioInputsWrapper, SearchButtonWrapper, SearchInput } from './Home.styled';
@@ -31,7 +32,7 @@ const Home = () => {
   }
   const RenderedSearch= ()=>{
     if(results && results.length === 0){
-        return <div>No Results Found !</div>
+        return <Centered> No Results Found !</Centered>
     }
     if(results && results.length > 0){
         return results[0].show 

@@ -3,6 +3,7 @@ import MainPageLayout from '../Components/MainPageLayout';
 import {useShows} from '../mics/coustum-hooks';
 import  {apiget} from '../mics/config';
 import ShowGrid from '../Components/show/ShowGrid';
+import { Centered } from '../Components/style';
 const Starred = () => {
   const [started] = useShows();
   const [shows,setShow] = useState(null);
@@ -26,9 +27,9 @@ const Starred = () => {
       }
   },[started])
   return <MainPageLayout> 
-  {islodings && <div>Shows are stilled Loding.</div> } 
-  {iserror && <div>Error Occured : {iserror}</div>}
-  {!islodings && !shows && <div> No Shows Werer Added ! </div>}
+  {islodings && <Centered>Shows are stilled Loding.</Centered> } 
+  {iserror && <Centered>Error Occured : {iserror}</Centered>}
+  {!islodings && !shows && <Centered> No Shows Werer Added ! </Centered>}
   {!islodings && !iserror && shows && <ShowGrid data={shows} />}
    </MainPageLayout>;
 };

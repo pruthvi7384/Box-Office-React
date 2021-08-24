@@ -55,3 +55,12 @@ export const Star = styled.div`
     39% 35%
   );
 `;
+export const Centered = styled.div`
+      display:flex;
+      justify-content:space-around;
+      align-items:center;
+      font-size:18px;
+      font-weight:bold;
+      margin-top:20px;
+      color:red;
+`;
