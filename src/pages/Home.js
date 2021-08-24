@@ -3,10 +3,10 @@ import ActorGrid from '../Components/actor/ActorGrid';
 import MainPageLayout from '../Components/MainPageLayout';
 import ShowGrid from '../Components/show/ShowGrid';
 import  {apiget} from '../mics/config';
-
+import {useLastQuery} from '../mics/coustum-hooks';
 
 const Home = () => {
-  const [input,setInput] = useState('');
+  const [input,setInput] = useLastQuery();
   const [results,setResults] = useState(null);
   const [radioOption,setRadioOption] = useState('shows');
 
