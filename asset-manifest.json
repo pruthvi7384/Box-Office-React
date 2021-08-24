@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Box-Office-React/static/css/main.3cd6ee85.chunk.css",
-    "main.js": "/Box-Office-React/static/js/main.a3b2838e.chunk.js",
-    "main.js.map": "/Box-Office-React/static/js/main.a3b2838e.chunk.js.map",
+    "main.js": "/Box-Office-React/static/js/main.b32d5bcc.chunk.js",
+    "main.js.map": "/Box-Office-React/static/js/main.b32d5bcc.chunk.js.map",
     "runtime-main.js": "/Box-Office-React/static/js/runtime-main.17046b96.js",
     "runtime-main.js.map": "/Box-Office-React/static/js/runtime-main.17046b96.js.map",
     "static/js/2.40556a9f.chunk.js": "/Box-Office-React/static/js/2.40556a9f.chunk.js",
     "static/js/2.40556a9f.chunk.js.map": "/Box-Office-React/static/js/2.40556a9f.chunk.js.map",
     "index.html": "/Box-Office-React/index.html",
-    "precache-manifest.d5b6c88500d134de904c3bed74c18075.js": "/Box-Office-React/precache-manifest.d5b6c88500d134de904c3bed74c18075.js",
+    "precache-manifest.311f5df722ba95a8cf6fe9aaaa99465f.js": "/Box-Office-React/precache-manifest.311f5df722ba95a8cf6fe9aaaa99465f.js",
     "service-worker.js": "/Box-Office-React/service-worker.js",
     "static/css/main.3cd6ee85.chunk.css.map": "/Box-Office-React/static/css/main.3cd6ee85.chunk.css.map",
     "static/js/2.40556a9f.chunk.js.LICENSE.txt": "/Box-Office-React/static/js/2.40556a9f.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.17046b96.js",
     "static/js/2.40556a9f.chunk.js",
     "static/css/main.3cd6ee85.chunk.css",
-    "static/js/main.a3b2838e.chunk.js"
+    "static/js/main.b32d5bcc.chunk.js"
   ]
 }
