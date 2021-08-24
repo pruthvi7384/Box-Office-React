@@ -1,9 +1,11 @@
 import React,{useState} from 'react';
 import ActorGrid from '../Components/actor/ActorGrid';
+import CustomRadioButton from '../Components/CustomRadioButton';
 import MainPageLayout from '../Components/MainPageLayout';
 import ShowGrid from '../Components/show/ShowGrid';
 import  {apiget} from '../mics/config';
 import {useLastQuery} from '../mics/coustum-hooks';
+import { RadioInputsWrapper, SearchButtonWrapper, SearchInput } from './Home.styled';
 
 const Home = () => {
   const [input,setInput] = useLastQuery();
@@ -45,18 +47,31 @@ const Home = () => {
   console.log(radioOption);
   return ( 
       <MainPageLayout>
-        <input type="text" onChange={onChange} onKeyDown={onKeyDown} value={input} />
+        <SearchInput type="text" onChange={onChange} onKeyDown={onKeyDown} value={input} />
+        <RadioInputsWrapper>
         <div>
-          <label htmlFor="show_search">
-              Shows
-              <input id="show_search" checked={isShowsOption} type="radio" value="shows" onChange={onChangeRadoio} />
-          </label>
-          <label htmlFor="show_actors">
-              Actors
-              <input id="show_actors" checked={!isShowsOption} type="radio" value="people" onChange={onChangeRadoio} />
-          </label>
+          <CustomRadioButton
+            label="Shows"
+            id="shows-search"
+            value="shows"
+            checked={isShowsOption}
+            onChange={onChangeRadoio}
+          />
         </div>
-        <button type="button" onClick={Search}>Search</button>
+
+        <div>
+          <CustomRadioButton
+            label="Actors"
+            id="actors-search"
+            value="people"
+            checked={!isShowsOption}
+            onChange={onChangeRadoio}
+          />
+        </div>
+      </RadioInputsWrapper>
+        <SearchButtonWrapper>
+          <button type="button" onClick={Search}>Search</button>
+        </SearchButtonWrapper>
         {RenderedSearch()}
       </MainPageLayout>
     );
