@@ -1,30 +1,34 @@
-import { useReducer,useEffect} from "react"; 
+import { useReducer, useEffect } from 'react';
 
-function useShows(prvestate,action) {
-    switch(action.type) {
-        case 'ADD':{
-            rerturn [...prvestate,action.showId]
-        }
-        case 'REMOVE':{
-            return prvestate.fillters(showId => showId !== action.showId)
-        }
-        default: return prevstate;
+function showsReducer(prevState, action) {
+  switch (action.type) {
+    case 'ADD': {
+      return [...prevState, action.showId];
     }
+
+    case 'REMOVE': {
+      return prevState.filter(showId => showId !== action.showId);
+    }
+
+    default:
+      return prevState;
+  }
 }
 
-function usePresistedReducer(reducer,initialstate,key){
-    const [ state, despatch ] = useReducer(reducer,initialstate,(initial)=>{
-        const presisted = localStorage.getItem(key);
-        return presisted ? JSON.parse(presisted) : initial;
-    });
+function usePersistedReducer(reducer, initialState, key) {
+  const [state, dispatch] = useReducer(reducer, initialState, initial => {
+    const persisted = localStorage.getItem(key);
 
-    useEffect(()=>{
-        localStorage.setItem(key, JSON.stringify(state));
-    },[state,key]);
+    return persisted ? JSON.parse(persisted) : initial;
+  });
 
-    return [state,despatch];
-} 
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(state));
+  }, [state, key]);
 
-export function useShows(key='show'){
-    return  usePresistedReducer(showReducer,[],key);
+  return [state, dispatch];
+}
+
+export function useShows(key = 'shows') {
+  return usePersistedReducer(showsReducer, [], key);
 }
