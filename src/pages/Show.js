@@ -1,6 +1,10 @@
 import React,{ useReducer, useEffect } from 'react'
 import {useParams} from 'react-router-dom';
+import Detailes from '../Components/show/Detailes';
+import ShowMainData from '../Components/show/ShowMainData';
+import Session from '../Components/show/Session';
 import {apiget} from '../mics/config';
+import Cast from '../Components/show/Cast';
 
 const reducer =(prevstate,action) => {
     switch(action.type) {
@@ -33,11 +37,9 @@ function Show() {
         let isMounted = true;
         apiget(`/shows/${id}?embed[]=seasons&embed[]=cast`)
         .then(results => {
-            setTimeout(()=>{
                 if(isMounted) {
                     despatch({type:'FEATCH_SUCCESS',show:results})
                 }
-            },2000)
         }).catch(err => {
             if(isMounted) {
                 despatch({type:'FEATCH_FAILED',iserror:err.message})
@@ -56,7 +58,19 @@ function Show() {
     }
     return (
         <div>
-            This is show page
+            <ShowMainData image={show.image} name={show.name} rating={show.rating} summary={show.summary} tags={show.genres} />
+            <div>
+                <h2>Details</h2>
+                <Detailes status={show.status} network={show.network} premiered={show.premiered}/>
+            </div>
+            <div>
+                <h2>Sessions</h2>
+                <Session seasons={ show._embedded.seasons }/>
+            </div>
+            <div>
+                <h2>Cast</h2>
+                <Cast cast={ show._embedded.cast }/>
+            </div>
         </div>
     )
 }
