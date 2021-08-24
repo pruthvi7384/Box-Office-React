@@ -48,7 +48,7 @@ const Home = () => {
   console.log(radioOption);
   return ( 
       <MainPageLayout>
-        <SearchInput type="text" onChange={onChange} onKeyDown={onKeyDown} value={input} />
+        <SearchInput type="text" placeholder="Something Search Here...." onChange={onChange} onKeyDown={onKeyDown} value={input} />
         <RadioInputsWrapper>
         <div>
           <CustomRadioButton
