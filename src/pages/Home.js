@@ -12,7 +12,7 @@ const Home = () => {
 
   const isShowsOption = radioOption === 'shows';
   const Search = ()=>{
-    apiget(`/${radioOption}?q=${input}`)
+    apiget(`/search/${radioOption}?q=${input}`)
    .then(result=>{
       setResults(result);
       console.log(result);
