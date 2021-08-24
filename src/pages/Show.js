@@ -5,6 +5,7 @@ import ShowMainData from '../Components/show/ShowMainData';
 import Session from '../Components/show/Session';
 import {apiget} from '../mics/config';
 import Cast from '../Components/show/Cast';
+import { InfoBlock, ShowPageWrapper } from './Show.styled';
 
 const reducer =(prevstate,action) => {
     switch(action.type) {
@@ -57,21 +58,21 @@ function Show() {
         return <div>Error Occured : {iserror}</div>
     }
     return (
-        <div>
+        <ShowPageWrapper>
             <ShowMainData image={show.image} name={show.name} rating={show.rating} summary={show.summary} tags={show.genres} />
-            <div>
+            <InfoBlock>
                 <h2>Details</h2>
                 <Detailes status={show.status} network={show.network} premiered={show.premiered}/>
-            </div>
-            <div>
+            </InfoBlock>
+            <InfoBlock>
                 <h2>Sessions</h2>
                 <Session seasons={ show._embedded.seasons }/>
-            </div>
-            <div>
+            </InfoBlock>
+            <InfoBlock>
                 <h2>Cast</h2>
                 <Cast cast={ show._embedded.cast }/>
-            </div>
-        </div>
+            </InfoBlock>
+        </ShowPageWrapper>
     )
 }
 
